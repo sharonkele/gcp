@@ -13,3 +13,14 @@ services:
     environment: 
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=flaskapp
+  jenkins:
+    image: jenkins/jenkins
+    ports:
+      - target: 8080
+      - published: 8080
+    volumes: 
+     - type: volume
+       source: jenkins-home
+       target: "/var/jenkins_home"
+  volumes: 
+    jenkins-home
